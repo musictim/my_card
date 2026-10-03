@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>김효석 | 설득 전문가</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#061936;color:#fff;
+  font-family:"Noto Sans KR",Arial,sans-serif;
+  text-align:center;min-height:100vh;
+}
+.card{
+  width:100%;max-width:520px;min-height:100vh;
+  margin:auto;padding:48px 24px 35px;
+  display:flex;flex-direction:column;
+}
+.top{margin-bottom:38px}
+.badge{
+  display:inline-block;padding:8px 18px;border:1px solid #8ea9cf;
+  border-radius:30px;font-size:15px;margin-bottom:18px;color:#dce8f8;
+}
+h1{font-size:42px;margin:0 0 12px;font-weight:800;letter-spacing:-2px}
+.intro{font-size:20px;line-height:1.5;color:#dce8f8;margin:0}
+.work{
+  background:#fff;color:#061936;border-radius:24px;
+  padding:25px 20px;margin-bottom:25px;
+}
+.work h2{font-size:23px;margin:0 0 18px}
+.jobs{display:grid;gap:12px}
+.job{
+  padding:16px;border-radius:14px;background:#eef4fb;
+  font-size:19px;font-weight:700;
+}
+.buttons{display:grid;gap:12px;margin-bottom:20px}
+.btn{
+  display:block;text-decoration:none;border-radius:15px;
+  padding:17px;font-size:19px;font-weight:800;
+  border:2px solid #fff;color:#fff;
+}
+.kakao{background:#f7df00;color:#111;border-color:#f7df00}
+.youtube{background:#fff;color:#061936}
+.share{background:transparent}
+.contact{
+  margin-top:auto;padding-top:15px;
+}
+.contact a{
+  display:block;text-decoration:none;background:#fff;color:#061936;
+  border-radius:17px;padding:19px;font-size:22px;font-weight:800;
+}
+.phone{font-size:16px;color:#b9c9de;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="card">
+  <header class="top">
+    <div class="badge">김효석아카데미 원장</div>
+    <h1>김효석</h1>
+    <p class="intro">사람의 마음을 움직이는<br>설득 전문가</p>
+  </header>
+
+  <section class="work">
+    <h2>제가 하는 일</h2>
+    <div class="jobs">
+      <div class="job">🎤 설득 스피치 & 커뮤니케이션</div>
+      <div class="job">📚 세일즈 & 영업 교육</div>
+      <div class="job">🤖 AI 기반 세일즈 교육</div>
+    </div>
+  </section>
+
+  <div class="buttons">
+    <a class="btn kakao" href="http://pf.kakao.com/_xgjiwd/chat">💬 카카오톡 상담하기</a>
+    <a class="btn youtube" href="https://youtube.com/@showhost?si=g1lTpUi4zmr4cu4E" target="_blank">▶ YouTube</a>
+    <button class="btn share" onclick="saveContact()">📇 연락처 저장하기</button>
+  </div>
+
+  <div class="contact">
+    <a href="tel:01022304263">📞 문의하기</a>
+    <div class="phone">010-2230-4263</div>
+  </div>
+</div>
+
+<script>
+function saveContact(){
+  const vcard=`BEGIN:VCARD
+VERSION:3.0
+FN:김효석
+ORG:김효석아카데미
+TITLE:설득 전문가
+TEL;TYPE=CELL:010-2230-4263
+END:VCARD`;
+  const blob=new Blob([vcard],{type:"text/vcard;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download="김효석.vcf";
+  document.body.appendChild(a);a.click();a.remove();
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
